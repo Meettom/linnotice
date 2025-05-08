@@ -1,5 +1,10 @@
 # Linux服务监控及自动触发邮件通知
 
+## 使用方法
+将 linnotice.sh 下载之后放到你的服务器的 /root/ 路径里面，执行路径为 /root/linnotice.sh
+然后在宝塔面板或者Cron里面添加执行指令，类似：sh /root/linnotice.sh ，或者完整的 sudo -u root bash -c '/root/linnotice.sh' ，设置好定时执行即可。
+
+
 ## 一、代码功能概述
 
 该脚本用于监控 Linux 系统中特定端口（3306，MySQL 数据库，端口可以任意指定）的服务运行状态。当检测到端口无服务监听时，会自动执行以下操作：
@@ -69,7 +74,7 @@
    - 任务类型：Shell 脚本
    - 任务名称：`监控 10024 端口服务`
    - 执行周期：根据需求选择（如每 5 分钟）
-   - 脚本内容：sudo -u root bash -c '/root/check_port_3306.sh'  //此处文件及位置改成自己的
+   - 脚本内容：sudo -u root bash -c '/root/linnotice.sh'  //此处文件及位置改成自己的
 4. 保存任务
 
 ### 方法 2：通过 crontab 添加定时任务
@@ -81,7 +86,7 @@
 
 2. 添加以下内容（示例为每 5 分钟检查一次）：
    ```bash
-   */5 * * * * /bin/bash /root/check_port_3306.sh
+   */5 * * * * /bin/bash /root/linnotice.sh
    ```
 
 3. 保存并退出（在 vim 中按 `Esc`，输入 `:wq` 回车）
@@ -90,11 +95,11 @@
 
 1. 手动执行脚本测试：
    ```bash
-   sudo /bin/bash /root/check_port_3306.sh
+   sudo /bin/bash /root/linnotice.sh
    ```
 
 2. 检查以下内容：
-   - 查看日志文件：`tail -f /var/log/port_10024_monitor.log`
+   - 查看日志文件：`tail -f /var/log/linnotice_monitor.log`
    - 检查邮箱是否收到测试通知
    - 确认 cron 日志（`grep CRON /var/log/syslog`）
 
