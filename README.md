@@ -5,6 +5,11 @@
 
 然后在宝塔面板或者Cron里面添加执行指令，类似：sh /root/linnotice.sh ，或者完整的 sudo -u root bash -c '/root/linnotice.sh' ，设置好定时执行即可。
 
+注意linnotice.sh里面的下面的内容需要替换成你自己的：
+1. API_KEY="50ad6789000000000000000021e177c"      #替换成自己的AokSend的api_key
+2. TEMPLATE_ID="E_1000000000057"       #替换成自己的AokSend的邮件模板id
+3. TO_EMAIL="meetxxxxxx@163.com"       #替换成自己需要接收通知的邮箱
+
 
 ## 一、代码功能概述
 
