@@ -2,6 +2,7 @@
 
 ## 使用方法
 将 linnotice.sh 下载之后放到你的服务器的 /root/ 路径里面，执行路径为 /root/linnotice.sh
+
 然后在宝塔面板或者Cron里面添加执行指令，类似：sh /root/linnotice.sh ，或者完整的 sudo -u root bash -c '/root/linnotice.sh' ，设置好定时执行即可。
 
 
